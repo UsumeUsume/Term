@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Moments</title>
+    <style>
+        :root {
+            --bg-color: #fdf2f2;
+            --accent-color: #ffafcc;
+            --text-color: #5e548e;
+            --star-color: #ffc8dd; /* Soft pink stars */
+        }
+
+        body {
+            background-color: var(--bg-color);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            color: var(--text-color);
+            overflow: hidden; /* Keeps stars inside the screen */
+            position: relative;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+            font-weight: 300;
+            z-index: 2; /* Keeps text above stars */
+        }
+
+        /* Star Styling */
+        .star {
+            position: absolute;
+            background-color: var(--star-color);
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            opacity: 0.6;
+            z-index: 1;
+            animation: drift linear infinite;
+        }
+
+        @keyframes drift {
+            from { transform: translateY(100vh) rotate(0deg); }
+            to { transform: translateY(-10vh) rotate(360deg); }
+        }
+
+        /* Gallery and Polaroids */
+        .gallery {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+            z-index: 2;
+        }
+
+        .polaroid {
+            background: white;
+            padding: 15px 15px 40px 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border-radius: 2px;
+            transition: transform 0.3s ease;
+        }
+
+        .polaroid:nth-child(even) { transform: rotate(3deg); }
+        .polaroid:nth-child(odd) { transform: rotate(-3deg); }
+
+        .polaroid:hover {
+            transform: scale(1.05) rotate(0deg) !important;
+        }
+
+        .polaroid img {
+            width: 250px;
+            height: 350px;
+            object-fit: cover;
+            border: 1px solid #eee;
+        }
+
+        .caption {
+            text-align: center;
+            margin-top: 15px;
+            font-family: 'Brush Script MT', cursive;
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="star" style="width: 15px; height: 15px; left: 10%; animation-duration: 8s;"></div>
+    <div class="star" style="width: 25px; height: 25px; left: 25%; animation-duration: 12s; opacity: 0.4;"></div>
+    <div class="star" style="width: 10px; height: 10px; left: 45%; animation-duration: 10s;"></div>
+    <div class="star" style="width: 20px; height: 20px; left: 70%; animation-duration: 15s; opacity: 0.5;"></div>
+    <div class="star" style="width: 12px; height: 12px; left: 85%; animation-duration: 9s;"></div>
+    <div class="star" style="width: 30px; height: 30px; left: 90%; animation-duration: 18s; opacity: 0.3;"></div>
+
+    <h1>I love you so much ✨</h1>
+
+    <div class="gallery">
+        <div class="polaroid">
+            <img src="Term1.jpg" alt="Memory One">
+            <div class="caption">The best day</div>
+        </div>
+
+        <div class="polaroid">
+            <img src="Term2.jpg" alt="Memory Two">
+            <div class="caption">Always smiling</div>
+        </div>
+    </div>
+
+</body>
+</html>
